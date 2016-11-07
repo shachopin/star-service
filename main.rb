@@ -1,9 +1,10 @@
 require 'sinatra'
-
+=begin
 before do 
    headers 'Access-Control-Allow-Origin' => '*', 
             'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST']  
 end
+=end
 
 get "/" do  
   output = ""
