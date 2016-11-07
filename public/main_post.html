@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Consume Square Service</title>
+  <script>
+    var xmlhttp;
+
+    function drawSquare(){
+      xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = callback;
+      var rows = document.getElementById("rows").value;
+      var cols = document.getElementById("cols").value;
+      var url = "/?rows=" + rows + "&cols=" + cols;
+      //console.log(url);
+      xmlhttp.open("POST", url, true);
+      xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded")
+      xmlhttp.send("rows=" + rows + "&cols" + cols);
+    }
+
+    function callback(){
+      if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        console.log('hit');
+        document.getElementById("result").innerHTML = xmlhttp.responseText;
+      }
+    }
+  </script>
+</head>
+
+<body translate="no" >
+  <div id="result"></div>
+  Rows: <input type="text" id="rows" /><br/>
+  Columns: <input type="text" id="cols" /><br/>
+  <input type="button" value="Draw Square" onclick="drawSquare()"/>
+</body>
+</html>
+ 
