@@ -19,7 +19,7 @@ end
 
 # exactly the same as above, only change is from get to post
 
-post "/" do  
+post "/" do    
   output = ""
   params["rows"].to_i.times do
     params["cols"].to_i.times do
